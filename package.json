@@ -1,0 +1,32 @@
+{
+  "name": "nodeJs-social-REST",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nooremeel/nodeJs-Social-REST"
+  },
+  "author": "Nour",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-validator": "^5.3.0",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.2",
+    "multer": "^1.4.0"
+  },
+  "devDependencies": {
+    "chai": "^6.2.2",
+    "dotenv": "^17.4.2",
+    "mocha": "^11.7.6",
+    "nodemon": "^1.18.4",
+    "sinon": "^22.0.0"
+  }
+}
