@@ -1,3 +1,4 @@
+require('dotenv').config();
 const expect = require('chai').expect;
 const jwt = require('jsonwebtoken');
 const sinon = require('sinon');
@@ -36,6 +37,7 @@ describe('Auth middleware', function () {
         expect(req).to.have.property('userId');
         expect(req).to.have.property('userId', 'abc');
         expect(jwt.verify.called).to.be.true;
+        expect(jwt.verify.calledWith('string', process.env.JWT_SECRET)).to.be.true;
         jwt.verify.restore();
     });
 

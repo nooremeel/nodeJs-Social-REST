@@ -10,9 +10,13 @@ describe('Auth Controller', function () {
 
     before(async function () {
         this.timeout(10000);
-        await mongoose.connect(
-            `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.etoo1jt.mongodb.net/${process.env.MONGO_TEST_DATABASE}?appName=social`
-        );
+        const testDbUri =
+            process.env.MONGODB_TEST_URI ||
+            `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.etoo1jt.mongodb.net/${process.env.MONGO_TEST_DATABASE}?appName=social`;
+        await mongoose.connect(testDbUri, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        });
         // Clean up any leftover user from a previous failed run
         await User.deleteMany({});
         const user = new User({
